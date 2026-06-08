@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Collectible
   - Ground
+  - Item
+  - Basket
   layers:
   - Default
   - TransparentFX
