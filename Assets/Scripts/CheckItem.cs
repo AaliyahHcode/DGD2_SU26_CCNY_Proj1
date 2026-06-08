@@ -23,7 +23,7 @@ public class CheckItem : MonoBehaviour
             Destroy(this.gameObject, 0.5f);
         }
         
-        //previously had two OnTriggerEnter2D but Unity does not read two in the same 
+        //previously had two OnTriggerEnter2D but Unity does not read two in the same, and it does not work physics wise
         if (collision.gameObject.CompareTag("Ground"))
         {
             Destroy(this.gameObject);
