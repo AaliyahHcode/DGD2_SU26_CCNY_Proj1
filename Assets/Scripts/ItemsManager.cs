@@ -16,6 +16,7 @@ public class ItemsManager : MonoBehaviour
 
     public float RoundTimer = 30f;
     public float spawnTimer = 2f;
+    float currentSpawnTimer;
     public TextMeshProUGUI Timer;
     public TextMeshProUGUI Score;
     // public TextMeshProUGUI Missed;
@@ -23,7 +24,7 @@ public class ItemsManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        currentSpawnTimer = spawnTimer;
     }
 
     private void Update()
@@ -38,16 +39,16 @@ public class ItemsManager : MonoBehaviour
         
         if(RoundRun == true)
         {
-            spawnTimer -= Time.deltaTime;
+            currentSpawnTimer -= Time.deltaTime;
             
-            if(spawnTimer < 0f)
+            if(currentSpawnTimer < 0f)
             {
                 //spawns an item every 2 seconds (want to use Random.Range to do this in a certain space)
                 Vector2 spawnPos = new Vector2(Random.Range(-8f, 8f), Random.Range(0.5f, 4f));
                 
                 GameObject spawnedItem = Instantiate(item, spawnPos, Quaternion.identity);
                 spawnedItem.tag = "Item";
-                spawnTimer = 2f;
+                currentSpawnTimer = spawnTimer;
 
             }
 
